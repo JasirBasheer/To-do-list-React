@@ -2,6 +2,7 @@ import {BrowserRouter,Routes, Route} from 'react-router-dom'
 import Login from './components/Login'
 import TodoWrapper from './components/TodoWrapper'
 import './App.css'
+import ProtectedRoute from './components/ProtectedRoute'
 
 
 
@@ -13,7 +14,11 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/login' element={<Login/>}/>
-        <Route path='/home' element={<TodoWrapper/>}/>
+        <Route path='/home' element={
+              <ProtectedRoute>
+              <TodoWrapper />
+            </ProtectedRoute>
+        }/>
     </Routes>
     </BrowserRouter>
 

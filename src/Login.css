@@ -43,7 +43,7 @@ h2 {
     font-weight: bold;
   }
   
-p {
+  .pLogin{
     font-size: 1rem;
     margin-bottom: 1.2rem;
     color: #666;
@@ -88,7 +88,7 @@ p {
     transition: background-color 0.2s;
   }
   
-  button:hover {
+  .btn:hover {
     background-color: #0056b3;
   }
 

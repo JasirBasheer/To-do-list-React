@@ -42,17 +42,7 @@
   cursor: pointer;
   border-radius: 10%;
 }
-.logoutBtn:hover{
-  margin-left: 90%;
-  margin-top: 2%;
-  background: #000000;
-  color: #fff;
-  border: none;
-  padding: 0.55rem;
-  cursor: pointer;
-  border-radius: 10%;
 
-}
 h1{
   font-size: 1.6rem;
 }
@@ -68,23 +58,26 @@ h1{
 }
 
 .Todo {
-  background-color: #7f90874b;
+  background-color: #bcc0be53;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 14px;
-  height: 3rem;
-  border-radius: 6px;
+  height: 2.6rem;
+  border-radius: 4px;
   padding: 0 20px 0 0px;
 }
 
 .TaskText {
+  font-size: 0.9rem;
   max-width: 210px;
   white-space: nowrap;
   overflow: hidden; 
   text-overflow: ellipsis;
 }
-
+.btn-confirm{
+  background-color: #ff0000cb;
+}
 .Icons {
   display: flex;
 }
@@ -130,15 +123,26 @@ height: 41px;
  margin-bottom: 11px; 
  color: white;
  background-color: #000000;
+ cursor: pointer;
 }
 
 
-.addTodoBtn:hover{
-  width: 95px;
-  height: 41px;
-   border: none;
-   margin-bottom: 11px; 
-   color: white;
-   background-color: #000000ee;
-   cursor: pointer;
+
+  .TaskEditInp{
+    width: 250px;
+    height: 36px;
+    background: none;
+    border: 1px solid black;
+    margin-top: 11px;
   }
+  .editTodoBtn{
+    width: 66px;
+    margin-left: 5px;
+    height: 39px;
+    background-color: green;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
+
+

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { message } from "antd";
 import TodoForm from './TodoForm'
+import EditTodoForm from './EditTodoForm'
 import Todo from './Todo'
 import Swal from 'sweetalert2';
 import { v4 as uuidV4 } from 'uuid';
@@ -56,7 +57,11 @@ const TodoWrapper = () => {
             icon: 'warning',
             showCancelButton: true,  
             confirmButtonText: 'Yes, delete it!',
-            cancelButtonText: 'No, cancel!'
+            cancelButtonText: 'No, cancel!',
+            customClass: {
+                confirmButton: 'btn-confirm',
+                cancelButton: 'btn-cancel'
+              },
           }).then((result) => {
             if (result.isConfirmed) {
                 const updatedTodos = todos.filter((item)=>{
@@ -81,6 +86,22 @@ const TodoWrapper = () => {
           setTodos(updatedTodos)
       }
 
+      const editTodo = (id) =>{
+        console.log(id)
+        const updatedtodo = todos.map((todo)=>
+            todo.id == id ? {...todo,isEditing:!todo.isEditing}:todo 
+        )
+        setTodos(updatedtodo)
+      }
+
+      const editTask = (id,task) =>{
+        const updatedtodo = todos.map((todo)=>{
+            return todo.id == id ? {...todo,task:task,isEditing:!todo.isEditing}:todo 
+        })
+        setTodos(updatedtodo)
+      }
+
+
   return (
     <>
         <button className='logoutBtn' onClick={handleLogout}>Logout</button>
@@ -95,12 +116,15 @@ const TodoWrapper = () => {
     <div className="TaskContainer">
     {todos.map((todo,index)=>{
           return todo.isEditing?(
-        <>sadfas</>
+        <EditTodoForm editTask={editTask} 
+                      todo={todo}
+                      key={index}  />
     ):(
             <Todo task={todo} 
                   key={index}
                   deleteTodo={deleteTodo}
                   toggleComplete={toggleComplete}
+                  editTodo={editTodo}
                   />
 )
     })}

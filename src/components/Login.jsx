@@ -47,7 +47,7 @@ const Login = () => {
       <div className="loginForm">
         <div className="formContent">
           <h2>Welcome Back</h2>
-          <p >Please enter your email to continue</p>
+          <p className='pLogin' >Please enter your email to continue</p>
 
           <div className="inputGroup">
             <label htmlFor="email">Email</label>

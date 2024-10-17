@@ -10,6 +10,7 @@ const TodoForm = ({addTodo}) => {
         e.preventDefault()
         if(!task.trim()){
             message.error("Please enter a task")
+            inputRef.current.focus()
             return ;    
         }
         addTodo(task)
