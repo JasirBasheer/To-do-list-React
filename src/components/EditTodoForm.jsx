@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import {message} from 'antd'
+import PropTypes from 'prop-types'
 const EditTodoForm = ({ editTask, todo }) => {
     const [task, setTask] = useState(todo.task)
     const inputRef = useRef(null)
@@ -27,6 +28,14 @@ const EditTodoForm = ({ editTask, todo }) => {
         </form>
 
     )
+}
+
+EditTodoForm.propTypes ={
+    editTask: PropTypes.func.isRequired,
+    todo:PropTypes.shape({
+        task:PropTypes.string.isRequired,
+        id:PropTypes.number.isRequired
+    }).isRequired,
 }
 
 export default EditTodoForm

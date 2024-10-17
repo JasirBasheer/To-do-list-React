@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import '../Login.css'
 import { message } from "antd";
 import { useNavigate } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 const Login = () => {
   const [email,setEmail] = useState()
   const navigate = useNavigate()
-
+  const inpRef = useRef()
   const isValidEmail=(email)=>{
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     return emailRegex.test(email)
@@ -29,10 +29,13 @@ const Login = () => {
         navigate('/home')
 
       }else{
+        inpRef.current.focus()
         message.error('Email is not valid')
       }
 
     }else{
+      inpRef.current.focus()
+
       message.error('Email is not valid')
      
     }
@@ -54,6 +57,7 @@ const Login = () => {
             <input 
             className="inp"
             id="email"
+            ref={inpRef}
             required
             type="email"
             onChange={(e)=>setEmail(e.target.value)}            

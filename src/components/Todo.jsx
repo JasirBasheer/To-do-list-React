@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+import PropTypes from "prop-types";
 
 
 const Todo = ({task,toggleComplete,deleteTodo,editTodo}) => {
@@ -19,4 +20,13 @@ const Todo = ({task,toggleComplete,deleteTodo,editTodo}) => {
   )
 }
 
+Todo.propTypes ={
+  toggleComplete: PropTypes.func,
+  deleteTodo: PropTypes.func.isRequired,
+  editTask: PropTypes.func.isRequired,
+  task:PropTypes.shape({
+      task:PropTypes.string.isRequired,
+      id:PropTypes.number.isRequired
+  }).isRequired,
+}
 export default Todo

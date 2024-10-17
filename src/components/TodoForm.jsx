@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react'
 import { message } from "antd";
+import PropTypes from 'prop-types';
 
 
 const TodoForm = ({addTodo}) => {
@@ -32,6 +33,10 @@ const TodoForm = ({addTodo}) => {
     <button className='addTodoBtn' type='submit' >Add Task</button>
     </form>
   )
+}
+
+TodoForm.propTypes={
+  addTodo:PropTypes.func.isRequired
 }
 
 export default TodoForm
