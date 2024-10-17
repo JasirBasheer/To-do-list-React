@@ -37,7 +37,6 @@ const Login = () => {
       inpRef.current.focus()
 
       message.error('Email is not valid')
-     
     }
 
   }
