@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.main{
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: #ffffff39;
+}
+
+.imageDiv{
+  width: 50%;
+}
+.imageDiv img{
+  width: 70%;
+  margin-top: 26%;
+  margin-left: -5%;
+  
+}
+.TaskContainer{
+  overflow-y: auto;
+  height: 17.5rem;
+  scrollbar-width: none;
+}
+
+.completed{
+  text-decoration: line-through;
+}
+
+
+
+.logoutBtn{
+  margin-left: 90%;
+  margin-top: 2%;
+  background: #000000;
+  color: #fff;
+  border: none;
+  padding: 0.55rem;
+  cursor: pointer;
+  border-radius: 10%;
+}
+.logoutBtn:hover{
+  margin-left: 90%;
+  margin-top: 2%;
+  background: #000000;
+  color: #fff;
+  border: none;
+  padding: 0.55rem;
+  cursor: pointer;
+  border-radius: 10%;
+
+}
+h1{
+  font-size: 1.6rem;
+}
+.todoDiv{
+  width: 21.7%;
+  background-color: #D5EBE0;
+  height: 441px;
+  margin-top: 6%;
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 6px 20px rgba(0, 0, 0, 0.1);
+
+}
+
+.Todo {
+  background-color: #7f90874b;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 14px;
+  height: 3rem;
+  border-radius: 6px;
+  padding: 0 20px 0 0px;
+}
+
+.TaskText {
+  max-width: 210px;
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis;
+}
+
+.Icons {
+  display: flex;
+}
+
+
+
+.fa-trash,
+.fa-circle-check,
+.fa-pen-to-square {
+  margin-left: 0.75rem;
+  cursor: pointer;
+}
+
+.incompleted {
+  cursor: pointer;
+  margin-left: 18px;
+  color: #000000;
+
+}
+
+.completed {
+  margin-left: 18px;
+  color: #ff0000;
+  text-decoration: line-through;
+  cursor: pointer;
+}
+
+.TaskInp{
+  outline: none;
+  background: none;
+  border: 1px solid #000000;
+  padding: 0.5rem 1rem;
+  margin-top: 0rem;
+  margin-bottom: 0.5rem;
+  width: 270px;
+  color: #000000;
+}
+
+.addTodoBtn{
+width: 95px;
+height: 41px;
+ border: none;
+ margin-bottom: 11px; 
+ color: white;
+ background-color: #000000;
+}
+
+
+.addTodoBtn:hover{
+  width: 95px;
+  height: 41px;
+   border: none;
+   margin-bottom: 11px; 
+   color: white;
+   background-color: #000000ee;
+   cursor: pointer;
+  }

@@ -1,0 +1,117 @@
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { message } from "antd";
+import TodoForm from './TodoForm'
+import Todo from './Todo'
+import Swal from 'sweetalert2';
+import { v4 as uuidV4 } from 'uuid';
+
+const getAllToDos=()=>{
+    const lists=localStorage.getItem('lists')
+    
+    if(lists){
+        try {
+            console.log(JSON.parse(lists))
+            return JSON.parse(lists);  
+        } catch (error) {
+            console.error('Error parsing JSON:', error);
+            return [];  
+        }    }else{
+        return []
+    }
+
+}
+
+
+const TodoWrapper = () => {
+
+    const navigate = useNavigate()
+    const [todos,setTodos] = useState(getAllToDos())
+    
+      useEffect(()=>{
+        localStorage.setItem('lists',JSON.stringify(todos))
+      },[todos])
+
+
+      const handleLogout = () => {
+        localStorage.removeItem("userEmail");
+        message.success("Loggouted successfully");
+        navigate("/login");
+      };
+
+      const addTodo = (todo) =>{
+        const newTodo ={
+            id:uuidV4(),
+            task:todo,
+            completed:false,
+            isEditing:false,
+        }
+        setTodos([...todos,newTodo])
+      }
+      
+      const deleteTodo = (id)=>{
+        Swal.fire({
+            title: 'Are you sure?',
+            text: 'You won\'t be able to revert this!',
+            icon: 'warning',
+            showCancelButton: true,  
+            confirmButtonText: 'Yes, delete it!',
+            cancelButtonText: 'No, cancel!'
+          }).then((result) => {
+            if (result.isConfirmed) {
+                const updatedTodos = todos.filter((item)=>{
+                    return item.id !==id
+                })
+                setTodos(updatedTodos)
+                message.success('Task successfully deleted')
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                return;
+                }
+          });
+      }
+
+      const toggleComplete =(id)=>{
+        const updatedTodos = todos.map((todo) =>
+            todo.id === id ? { ...todo, completed: !todo.completed } : todo
+          );
+
+          updatedTodos.sort((a, b) => a.completed === b.completed ? 0 : a.completed ? 1 : -1);
+
+
+          setTodos(updatedTodos)
+      }
+
+  return (
+    <>
+        <button className='logoutBtn' onClick={handleLogout}>Logout</button>
+    <div className='main'>
+    <div className="imageDiv">
+        <img src="/main.png" alt="" />
+    </div>
+    <div className="todoDiv">
+        <div className="TodoWrapper">
+        <h1>Getting Things Done!</h1>
+    <TodoForm addTodo={addTodo}/>
+    <div className="TaskContainer">
+    {todos.map((todo,index)=>{
+          return todo.isEditing?(
+        <>sadfas</>
+    ):(
+            <Todo task={todo} 
+                  key={index}
+                  deleteTodo={deleteTodo}
+                  toggleComplete={toggleComplete}
+                  />
+)
+    })}
+        </div>
+
+        </div>
+    </div>
+    </div>
+
+    </>
+  )
+}
+
+export default TodoWrapper
