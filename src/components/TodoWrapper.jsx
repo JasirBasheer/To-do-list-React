@@ -47,7 +47,10 @@ const TodoWrapper = () => {
             completed:false,
             isEditing:false,
         }
-        setTodos([...todos,newTodo])
+        const updatedTodos = [...todos,newTodo]
+        updatedTodos.sort((a, b) => a.completed === b.completed ? 0 : a.completed ? 1 : -1);
+        setTodos(updatedTodos)
+
       }
       
       const deleteTodo = (id)=>{
@@ -129,6 +132,7 @@ const TodoWrapper = () => {
 )
     })}
         </div>
+       
 
         </div>
     </div>

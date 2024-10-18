@@ -9,6 +9,7 @@
   justify-content: center;
   height: 100vh;
   background-color: #ffffff39;
+
 }
 
 .imageDiv{
@@ -151,8 +152,9 @@ height: 41px;
   @media (max-width: 768px) {
   
     .main{
-      height: 100vh;
+      height: 111vh;
       flex-direction: column;
+      margin-bottom: 2.5rem;
     }
     
     .imageDiv{
@@ -166,7 +168,7 @@ height: 41px;
     }
     .TaskContainer{
       overflow-y: auto;
-      height: 17.5rem;
+      height: 14.3rem;
       scrollbar-width: none;
     }
     
@@ -181,9 +183,11 @@ height: 41px;
     .todoDiv{
       width: 75%;
       margin-left: 17px;
-      height: 371px;
+      height: 432px;
       margin-top: 6%;
       border-radius: 3px;
+      padding-bottom: 17px;
+      
     
     }
     
@@ -198,7 +202,7 @@ height: 41px;
       padding: 0 20px 0 0px;
     }
     
-    
+  
     .TaskInp{
       outline: none;
       background: none;
